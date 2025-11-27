@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,22 +16,22 @@ export class Login {
   });
 
   http = inject(HttpClient);
+  router = inject(Router);
 
   onLogin() {
-    debugger;
     const formValue = this.loginForm.value;
     this.http.post('https://freeapi.miniprojectideas.com/api/User/Login', formValue).subscribe({
       next: (response: any) => {
-        debugger;
         if (response.result) {
-          alert('success!');
+          //alert('success!');
+          localStorage.setItem('angular20Token', response.data.token);
+          this.router.navigateByUrl('/layout/dashboard');
         } else {
           alert(response.message);
         }
       },
       error: (error) => {
-        debugger;
-        alert('error :' + error.error);
+        alert('error :' + error.statusText);
       },
     });
   }
