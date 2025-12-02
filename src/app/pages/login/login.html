@@ -10,13 +10,13 @@
 
           <form [formGroup]="loginForm">
             <div class="mb-3">
-              <label for="email" class="form-label">Correo Electrónico</label>
+              <label for="username" class="form-label">Correo Electrónico</label>
               <input
                 type="email"
-                name="userName"
-                formControlName="EmailId"
+                name="username"
+                formControlName="username"
                 class="form-control form-control-lg"
-                id="email"
+                id="username"
                 placeholder="usuario@ejemplo.com"
                 required
               />
@@ -27,7 +27,7 @@
               <input
                 name="password"
                 type="password"
-                formControlName="Password"
+                formControlName="password"
                 class="form-control form-control-lg"
                 id="password"
                 placeholder="••••••••"
