@@ -1,59 +1,49 @@
-# LoginAngular20
+# Login Angular 20 — Full-Stack Authentication
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+A full-stack login implementation with Angular 20 on the frontend and a backend API for authentication. Demonstrates end-to-end login flow with secure credential handling.
 
-## Development server
+## Project Description
 
-To start a local development server, run:
+This project implements a complete login system where the Angular client communicates with a REST API for user authentication. It covers the full authentication lifecycle: form input, API call, token handling, and protected route access.
+
+## Architecture Overview
+
+```
+Client (Angular 20)  -->  HTTP/JSON  -->  Backend API  -->  Database
+      |                                                      |
+  AuthService                                              Users
+  LoginComponent                                           (mock or real)
+  AuthGuard (route protection)
+  Token storage (localStorage / session)
+```
+
+## Setup Instructions
+
+### Frontend
 
 ```bash
+cd login_angular20/frontend  # adjust path as needed
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Backend
 
 ```bash
-ng generate component component-name
+cd login_angular20/backend  # adjust path as needed
+dotnet restore
+dotnet run
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Tech Stack
 
-```bash
-ng generate --help
-```
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Angular 20, TypeScript, HTML/CSS |
+| Backend | .NET Core / ASP.NET Core Web API |
+| Auth | JWT (JSON Web Tokens) |
+| Database | SQL Server (or configured provider) |
 
-## Building
+## Note
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This repository shares scope with the Angular login practice app. Consider merging both into a consolidated Angular authentication showcase with the latest Angular version.
